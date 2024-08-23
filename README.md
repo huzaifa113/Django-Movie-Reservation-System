@@ -9,7 +9,7 @@ To set up the project locally, follow these steps:
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/huzaifa113/Django-Ecommerce-Website.git
+git clone https://github.com/huzaifa113/Django-Movie-Reservation-System.git
 cd repository
 ```
 
