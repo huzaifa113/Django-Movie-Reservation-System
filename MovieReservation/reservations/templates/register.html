@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+<title>Register| MoviesHub</title>
+{% endblock %}
+
+{% block style %}
+<style>
+    body {
+        background-image: url(/media/movies/poster/bg.jpg);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+      
+    .btn-primary {
+        background-image: linear-gradient(45deg, #ce1212, #e77c24);
+        border-radius: 15px;
+        border: none;
+        width: 250px;
+        margin-top: 10px;
+    }
+      
+    .register {
+        background-color: rgba(47, 54, 54, 0.57);
+        margin: 5px 20px;
+        border-radius: 30px;
+        padding: 50px;
+        box-shadow: 16px 13px 40px #0a0000;
+      
+    }
+
+    .cinema {
+        background-color: rgba(47, 54, 54, 0.57);
+        margin: 80px 20px;
+        border-radius: 30px;
+        padding: 50px;
+        box-shadow: 16px 13px 40px #0a0000;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-lg-5 col-12">
+            <form action="register" method="POST" class="text-white register">
+                {% csrf_token %}
+                <h1>Registration</h1>
+                {% if messages %}
+      <div class="alert alert-primary" role="alert">
+        {% for message in messages %}
+        {{ message }}
+        {% endfor %}
+      </div>
+      {% endif %}
+                <div class="form-group">
+                    <label class="form-label">Username</label>
+                    <input class="form-control" type="text" placeholder="Username" name="username">
+                </div>
+                <div class="form-row">
+                <div class="form-group col-md-6 col-12">
+                    <label class="form-label "> First Name</label>
+                    <input class="form-control" type="text" placeholder="Firstname" name="firstname">
+                </div>
+                <div class="form-group col-md-6 col-12">
+                    <label class="form-label ">Last Name</label>
+                    <input class="form-control" type="text" placeholder="Lastname" name="lastname">
+                </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label"><i class="fa fa-envelope-o" aria-hidden="true"></i> E-mail</label>
+                    <input class="form-control" type="email" placeholder="Email" name="email">
+                </div>
+                <div class="form-row">
+                <div class="form-group col-md-6 col-12">
+                    <label class="form-label ">Password</label>
+                    <input class="form-control" type="password" placeholder="Password" name="password1">
+                </div>
+                <div class="form-group col-md-6 col-12">
+                    <label class="form-label ">Repeat Password</label>
+                    <input class="form-control" type="password" placeholder="Re-Type Password" name="password2">
+                </div>
+                <p class="message">Already registered? <a style="color:#e77c14;" href="{% url 'login' %}">Log In Here</a></p>
+                </div>
+                <input class="btn btn-primary btn-lg btn-block" type="submit" value="Register">
+                <!--<a href="/accounts/register_cinema" class="btn btn-primary btn-block" style="width: 100%">Register as Cinema</a>-->
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+<title>Login | MoviesHub</title>
+{% endblock %}
+
+{% block style %}
+<style>
+    body {
+        background-image: url(/media/movies/poster/bg.jpg);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      
+      .btn-primary {
+        background-image: linear-gradient(45deg, #ce1212, #e77c24);
+        border-radius: 15px;
+        border: none;
+        width: 250px;
+        margin-top: 10px;
+      }
+      
+      .login {
+        background-color: rgba(47, 54, 54, 0.57);
+        height: 400px;
+        margin: 80px 40px;
+        border-radius: 30px;
+        padding: 50px;
+        box-shadow: 16px 13px 40px #0a0000;
+      
+      }
+      
+ 
+</style>
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-5 col-10 login">
+            <form action="login" method="POST" class="text-white">
+                {% csrf_token %}
+                <h1>Login</h1>
+                {% if messages %}
+                <div class="alert alert-primary" role="alert">
+                    {% for message in messages %}
+                    {{ message }}
+                    {% endfor %}
+                </div>
+                {% endif %}
+                <div class="form-group">
+                    <label class="form-label">Username</label>
+                    <input class="form-control" type="text" name="username" placeholder="Enter Username">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <input class="form-control" type="password" name="password" placeholder="Enter Password">
+                </div>
+                <p class="message">Not registered? <a style="color:#e77c14;" href="{% url 'register'%}">Create an account</a></p>
+                <input class="btn btn-primary btn-lg btn-block" type="submit" value="Login">
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

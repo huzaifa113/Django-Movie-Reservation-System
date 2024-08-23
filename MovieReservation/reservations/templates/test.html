@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: #E50914">
+  <div class="col-lg-3 col-md-4 col-8">
+      <h2 class="text-white"> <a role="button" href={% url 'index' %} style="text-decoration: none; color: white;" > Movie Counter</a></h2>
+  </div>
+  <div class="col-lg-5 col-4 d-none d-md-inline">
+          <form class="row" action="#" method="GET">
+              <div class="input-group col-12">
+                  <input type="search" class="form-control search-text" placeholder="Search Movies">
+                  <button type="submit" class="btn search"><i class="fa fa-search" aria-hidden="true"></i></button>
+              </div>
+          </form>
+  </div>
+  {% if user.is_authenticated %}
+  <div class="col-lg-3 col-4">
+          <div class="dropdown">
+                  <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-user" aria-hidden="true"></i> {{user.first_name }}
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      {% if user.cinema.role == 'cinema_manager' %}
+                      <a class="dropdown-item" href="{% url 'dashboard' %}"> <i class="fa fa-edit"></i> Dashboard</a>
+                      {% else %}
+                      <a class="dropdown-item" href="{% url 'bookings' %}"> <i class="fa fa-ticket"></i> Bookings</a>
+                      {% endif %}
+                      <a class="dropdown-item" href="{% url 'logout' %}"><i class="fa fa-sign-out"></i> Logout</a>
+                  </div>
+          </div>
+  </div>
+  {%  else  %}
+  <div class="col-lg-3 col-12 mt-2">
+      <div class="row no-gutters">
+          <div class="col mr-1">
+              <a class="btn btn-danger d-block" href="{% url 'register' %}" role="button"> Sign Up </a>
+          </div>
+          <div class="col">
+              <a class="btn btn-danger d-block" href="{% url 'login' %}" role="button"> Sign In </a> 
+          </div>
+      </div>    
+  </div>
+  {% endif %}
+</nav>
