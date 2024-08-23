@@ -1,6 +1,6 @@
 # Django E-commerce Website
 
-This project is a Django-based e-commerce website designed to provide a platform for users to browse, select, and purchase various products. It includes features such as product listings, a shopping cart, order tracking, and user authentication.
+This project is a Django-based Movie Rervation System. User can LogIn/SignUp into the system and then select the desired movie and show time after that user can select the desired seats from available seats and confirm rhe booking.
 
 ## Installation
 
@@ -34,13 +34,13 @@ The Admin Panel should be available at:
 ```bash
  localhost:8000/admin
 ```
-User can LogIn/SignUp into the system and then select the desired movie and show time after that user can select the desired seats from available seats and confirm rhe booking.
+
 
 
 
 # Home Page
 User can browse available movies.
-![image](https://github.com/user-attachments/assets/a82dda88-2ad5-4999-b51f-80720bd0cafd)
+![image](https://github.com/user-attachments/assets/3fdde134-d144-42a2-8369-690ffbc15abd)
 ![image](https://github.com/user-attachments/assets/2b9444c7-252f-47da-b6e7-1f1deb81b7cf)
 
 
