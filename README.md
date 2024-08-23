@@ -1,4 +1,4 @@
-# Django E-commerce Website
+# Django Movie Reservation Website
 
 This project is a Django-based Movie Rervation System. User can LogIn/SignUp into the system and then select the desired movie and show time after that user can select the desired seats from available seats and confirm rhe booking.
 
